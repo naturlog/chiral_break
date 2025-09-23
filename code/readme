@@ -1,0 +1,4 @@
+This is the code for simulating the chiral fluid, all in julia. The code is all run from the running.jl file. 
+fornberg.jl contains everything about taking derivatives and remeshing. Works for all 1d pdes
+chiral_forn.jl contains the adaptive differential equation solver. Could be adapted to other pdes
+running.jl runs everthing. 
