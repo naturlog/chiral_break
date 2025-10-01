@@ -112,21 +112,6 @@ function ∂2(f,Δx)
     [(2/(Δx[i]+Δx[mod1(i-1,n)]))*((f[mod1(i+1,n)]-f[i])/(Δx[i])-(f[i]-f[mod1(i-1,n)])/(Δx[mod1(i-1,n)])) for i in 1:n]
 end
 
-function ∂3(f,Δx)
-    n=length(f)
-    d2f = ∂2(f,Δx) #compute second derivative at point i 
-    d3f_h = [(d2f[mod1(i+1,n)]-d2f[i])/(Δx[i]) for i in 1:n] #third deriv at x_{i+1/2}
-    #return back to original points
-    return [(d3f_h[i]+d3f_h[mod1(i-1,n)])/2 for i in 1:n] #use the interpolated values for third deriv
-end
-
-function ∂4(f,Δx)
-    n=length(f)
-    d3f = ∂3(f,Δx) #compute third derivative at point i 
-    d4f_h = [(d3f[mod1(i+1,n)]-d3f[i])/(Δx[i]) for i in 1:n] #fourth deriv at x_{i+1/2}
-    #return back to original points
-    return [(d4f_h[i]+d4f_h[mod1(i-1,n)])/2 for i in 1:n] #use the interpolated values for third deriv
-end
 
 
 end
